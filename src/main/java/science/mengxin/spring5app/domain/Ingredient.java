@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 /**
  * <p>Date:    25/04/18
@@ -24,6 +25,17 @@ public class Ingredient {
 
     @ManyToOne
     private Recipe recipe;
+
+    @OneToOne
+    private UnitOfMeasure uom;
+
+    public UnitOfMeasure getUom() {
+        return uom;
+    }
+
+    public void setUom(UnitOfMeasure uom) {
+        this.uom = uom;
+    }
 
     public Long getId() {
         return id;
