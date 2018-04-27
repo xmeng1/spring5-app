@@ -29,6 +29,15 @@ public class Ingredient {
     @OneToOne
     private UnitOfMeasure uom;
 
+    public Ingredient() {
+    }
+
+    public Ingredient(String description, BigDecimal amount, UnitOfMeasure uom) {
+        this.description = description;
+        this.amount = amount;
+        this.uom = uom;
+    }
+
     public UnitOfMeasure getUom() {
         return uom;
     }
