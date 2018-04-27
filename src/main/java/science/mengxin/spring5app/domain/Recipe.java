@@ -1,5 +1,6 @@
 package science.mengxin.spring5app.domain;
 
+import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -35,6 +36,7 @@ public class Recipe {
     private String source;
     private String url;
 
+    @Lob
     private String directions;
 
     public Set<Ingredient> getIngredients() {
@@ -47,7 +49,7 @@ public class Recipe {
 
     //delete the reciep, then delete the ingredients by using cascade
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
-    private Set<Ingredient> ingredients;
+    private Set<Ingredient> ingredients = new HashSet<>();
 
     @Lob
     private Byte[] image;
@@ -59,7 +61,7 @@ public class Recipe {
     @JoinTable(name="recipe_category", joinColumns = @JoinColumn(name = "recipe_id"), inverseJoinColumns = @JoinColumn(name = "category_id"))
     // this is demo for the name and table mapping
     //@JoinTable(name="recipe_category_bar", joinColumns = @JoinColumn(name = "recipe_id_test"), inverseJoinColumns = @JoinColumn(name = "category_id_xx"))
-    private Set<Category> categories;
+    private Set<Category> categories = new HashSet<>();
 
     // ordinal will use 1,2,3 to save in the database
     @Enumerated(value = EnumType.STRING)
