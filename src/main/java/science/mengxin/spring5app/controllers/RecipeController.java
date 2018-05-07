@@ -2,8 +2,11 @@ package science.mengxin.spring5app.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import science.mengxin.spring5app.commands.RecipeCommand;
 import science.mengxin.spring5app.services.RecipeService;
 
 @Controller
@@ -21,5 +24,23 @@ public class RecipeController {
         model.addAttribute("recipe", recipeService.findById(new Long(id)));
 
         return "recipe/show";
+    }
+
+    @RequestMapping("recipe/new")
+    public String newRecipe(Model model){
+        model.addAttribute("recipe", new RecipeCommand());
+
+        return "recipe/recipeform";
+    }
+
+
+//    @RequestMapping(name = "recipe", method = RequestMethod.POST)
+
+    @PostMapping
+    @RequestMapping("recipe")
+    public String saveOrUpdate(@ModelAttribute RecipeCommand command) {
+        RecipeCommand savedCommand = recipeService.saveRecipeCommand(command);
+
+        return "redirect:/recipe/show/" + savedCommand.getId();
     }
 }
