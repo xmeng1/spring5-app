@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>org.springframework.data.jpa.repository.support.SimpleJpaRepository</OriginalElement>
+  <nodes>
+    <node x="217.875" y="237.0">org.springframework.data.repository.PagingAndSortingRepository</node>
+    <node x="291.125" y="158.0">org.springframework.data.repository.CrudRepository</node>
+    <node x="501.88125" y="237.0">org.springframework.data.repository.core.support.TransactionalRepositoryFactoryBeanSupport</node>
+    <node x="198.75" y="79.0">org.springframework.data.repository.NoRepositoryBean</node>
+    <node x="0.0" y="237.0">org.springframework.data.repository.query.QueryByExampleExecutor</node>
+    <node x="209.0" y="469.0">org.springframework.data.jpa.repository.support.JpaRepositoryFactory</node>
+    <node x="474.13125" y="316.0">org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean</node>
+    <node x="470.75" y="395.0">org.springframework.data.jpa.repository.support.SimpleJpaRepository</node>
+    <node x="595.38125" y="158.0">org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport</node>
+    <node x="492.38125" y="79.0">org.springframework.data.repository.Repository</node>
+    <node x="499.88125" y="0.0">org.springframework.stereotype.Indexed</node>
+    <node x="819.13125" y="316.0">org.springframework.stereotype.Repository</node>
+    <node x="276.13125" y="316.0">org.springframework.data.jpa.repository.JpaSpecificationExecutor</node>
+    <node x="135.13125000000002" y="316.0">org.springframework.data.jpa.repository.JpaRepository</node>
+    <node x="0.0" y="469.0">org.springframework.data.jpa.repository.config.EnableJpaRepositories</node>
+    <node x="680.13125" y="316.0">org.springframework.transaction.annotation.Transactional</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="org.springframework.data.repository.core.support.TransactionalRepositoryFactoryBeanSupport" target="org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport">
+      <point x="70.5" y="-14.5" />
+      <point x="713.38125" y="212.0" />
+      <point x="700.88125" y="212.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="org.springframework.data.jpa.repository.support.SimpleJpaRepository" target="org.springframework.stereotype.Repository">
+      <point x="58.875" y="-14.5" />
+      <point x="608.125" y="375.0" />
+      <point x="871.13125" y="375.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="org.springframework.data.repository.CrudRepository" target="org.springframework.data.repository.Repository">
+      <point x="32.5" y="-14.5" />
+      <point x="388.625" y="128.0" />
+      <point x="505.38125" y="128.0" />
+      <point x="-39.0" y="14.5" />
+    </edge>
+    <edge source="org.springframework.data.repository.core.support.TransactionalRepositoryFactoryBeanSupport" target="org.springframework.data.repository.Repository">
+      <point x="-70.5" y="-14.5" />
+      <point x="572.38125" y="212.0" />
+      <point x="584.88125" y="212.0" />
+      <point x="584.88125" y="138.0" />
+      <point x="557.38125" y="138.0" />
+      <point x="13.0" y="14.5" />
+    </edge>
+    <edge source="org.springframework.data.jpa.repository.support.SimpleJpaRepository" target="org.springframework.data.jpa.repository.JpaSpecificationExecutor">
+      <point x="-19.625" y="-14.5" />
+      <point x="529.625" y="365.0" />
+      <point x="365.13125" y="365.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="org.springframework.data.jpa.repository.JpaRepository" target="org.springframework.data.repository.query.QueryByExampleExecutor">
+      <point x="-40.33333333333334" y="-14.5" />
+      <point x="155.29791666666665" y="291.0" />
+      <point x="91.0" y="291.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean" target="org.springframework.data.repository.Repository">
+      <point x="-46.5" y="-14.5" />
+      <point x="520.63125" y="291.0" />
+      <point x="491.38125" y="291.0" />
+      <point x="491.38125" y="138.0" />
+      <point x="531.38125" y="138.0" />
+      <point x="-13.0" y="14.5" />
+    </edge>
+    <edge source="org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean" target="org.springframework.data.repository.core.support.TransactionalRepositoryFactoryBeanSupport">
+      <point x="46.5" y="-14.5" />
+      <point x="613.63125" y="291.0" />
+      <point x="642.88125" y="291.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport" target="org.springframework.data.repository.Repository">
+      <point x="0.0" y="-14.5" />
+      <point x="700.88125" y="128.0" />
+      <point x="583.38125" y="128.0" />
+      <point x="39.0" y="14.5" />
+    </edge>
+    <edge source="org.springframework.data.jpa.repository.JpaRepository" target="org.springframework.data.repository.NoRepositoryBean">
+      <point x="0.0" y="-14.5" />
+      <point x="195.63125000000002" y="291.0" />
+      <point x="192.5" y="291.0" />
+      <point x="192.5" y="138.0" />
+      <point x="223.08333333333334" y="138.0" />
+      <point x="-48.66666666666666" y="14.5" />
+    </edge>
+    <edge source="org.springframework.data.jpa.repository.support.SimpleJpaRepository" target="org.springframework.transaction.annotation.Transactional">
+      <point x="19.625" y="-14.5" />
+      <point x="568.875" y="365.0" />
+      <point x="739.63125" y="365.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="org.springframework.data.jpa.repository.support.SimpleJpaRepository" target="org.springframework.data.jpa.repository.JpaRepository">
+      <point x="-58.875" y="-14.5" />
+      <point x="490.375" y="375.0" />
+      <point x="195.63125000000002" y="375.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="org.springframework.data.repository.PagingAndSortingRepository" target="org.springframework.data.repository.CrudRepository">
+      <point x="50.25" y="-14.5" />
+      <point x="368.625" y="212.0" />
+      <point x="356.125" y="212.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="org.springframework.data.jpa.repository.JpaRepository" target="org.springframework.data.repository.PagingAndSortingRepository">
+      <point x="40.33333333333334" y="-14.5" />
+      <point x="235.96458333333337" y="291.0" />
+      <point x="318.375" y="291.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="org.springframework.data.repository.CrudRepository" target="org.springframework.data.repository.NoRepositoryBean">
+      <point x="-32.5" y="-14.5" />
+      <point x="323.625" y="138.0" />
+      <point x="320.41666666666663" y="138.0" />
+      <point x="48.66666666666666" y="14.5" />
+    </edge>
+    <edge source="org.springframework.data.repository.Repository" target="org.springframework.stereotype.Indexed">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="org.springframework.data.repository.PagingAndSortingRepository" target="org.springframework.data.repository.NoRepositoryBean">
+      <point x="-50.25" y="-14.5" />
+      <point x="268.125" y="212.0" />
+      <point x="280.625" y="212.0" />
+      <point x="280.625" y="138.0" />
+      <point x="271.75" y="138.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0536036036036036" x="463.9354424967935" y="329.63787943565626" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
