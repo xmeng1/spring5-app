@@ -27,6 +27,7 @@ public class IngredientServiceImpl implements IngredientService {
         Optional<Recipe> recipeOptional = recipeRepository.findById(recipeId);
 
         if (!recipeOptional.isPresent()) {
+            //TODO: need to handler the error
             log.error("recipe id cannot found. Id: {}", recipeId);
 
         }
@@ -39,6 +40,7 @@ public class IngredientServiceImpl implements IngredientService {
                 .map(ingredientToIngredientCommand::convert).findFirst();
 
         if (!ingredientCommandOptional.isPresent()) {
+            //TODO: need to handler the error
             log.error("Ingredient id cannot found. Id: {}", ingredientId);
         }
 
