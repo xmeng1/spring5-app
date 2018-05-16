@@ -8,6 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import science.mengxin.spring5app.commands.IngredientCommand;
+import science.mengxin.spring5app.services.IngredientService;
 import science.mengxin.spring5app.services.RecipeService;
 
 @Slf4j
@@ -16,9 +18,12 @@ public class IngredientController {
 
     private final RecipeService recipeService;
 
+    private final IngredientService ingredientService;
+
     @Autowired
-    public IngredientController(RecipeService recipeService) {
+    public IngredientController(RecipeService recipeService, IngredientService ingredientService) {
         this.recipeService = recipeService;
+        this.ingredientService = ingredientService;
     }
 
 
@@ -31,5 +36,19 @@ public class IngredientController {
 
         return "recipe/ingredient/list";
 
+    }
+
+
+    @GetMapping
+    @RequestMapping("/recipe/{recipeId}/ingredient/{ingredientId}/show")
+    public String showIngredient(
+            @PathVariable("recipeId") String recipeId,
+            @PathVariable("ingredientId") String ingredientId,
+            Model model) {
+        log.debug("Show the ingredient");
+        IngredientCommand ingredientCommand = ingredientService
+                .findByRecipeIdAndIngredientId(Long.valueOf(recipeId), Long.valueOf(ingredientId));
+        model.addAttribute("ingredient",  ingredientCommand);
+        return "recipe/ingredient/show";
     }
 }
