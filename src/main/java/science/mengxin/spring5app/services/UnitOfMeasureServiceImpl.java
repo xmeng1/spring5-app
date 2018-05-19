@@ -23,6 +23,7 @@ public class UnitOfMeasureServiceImpl implements UnitOfMeasureService {
 
     @Override
     public Set<UnitOfMeasureCommand> listAllUoms() {
+        // convert the iterable
         return StreamSupport.stream(unitOfMeasureRepository.findAll()
                 .spliterator(), false)
                 .map(unitOfMeasureToUnitOfMeasureCommand::convert)
