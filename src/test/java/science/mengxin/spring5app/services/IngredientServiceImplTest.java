@@ -11,6 +11,7 @@ import science.mengxin.spring5app.converters.UnitOfMeasureCommandToUnitOfMeasure
 import science.mengxin.spring5app.converters.UnitOfMeasureToUnitOfMeasureCommand;
 import science.mengxin.spring5app.domain.Ingredient;
 import science.mengxin.spring5app.domain.Recipe;
+import science.mengxin.spring5app.repositories.IngredientRepository;
 import science.mengxin.spring5app.repositories.RecipeRepository;
 import science.mengxin.spring5app.repositories.UnitOfMeasureRepository;
 
@@ -33,6 +34,9 @@ public class IngredientServiceImplTest {
     @Mock
     UnitOfMeasureRepository unitOfMeasureRepository;
 
+    @Mock
+    IngredientRepository ingredientRepository;
+
     IngredientService ingredientService;
 
     //init converters
@@ -46,7 +50,7 @@ public class IngredientServiceImplTest {
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
 
-        ingredientService = new IngredientServiceImpl(recipeRepository, ingredientToIngredientCommand, ingredientCommandToIngredient, unitOfMeasureRepository);
+        ingredientService = new IngredientServiceImpl(recipeRepository, ingredientToIngredientCommand, ingredientCommandToIngredient, unitOfMeasureRepository, ingredientRepository);
     }
 
 
@@ -106,5 +110,27 @@ public class IngredientServiceImplTest {
         verify(recipeRepository, times(1)).findById(anyLong());
         verify(recipeRepository, times(1)).save(any(Recipe.class));
 
+    }
+
+    @Test
+    public void testDeleteById() throws Exception {
+        //given
+        Recipe recipe = new Recipe();
+        Ingredient ingredient = new Ingredient();
+        ingredient.setId(3L);
+        recipe.addIngredient(ingredient);
+        ingredient.setRecipe(recipe);
+        Optional<Recipe> recipeOptional = Optional.of(recipe);
+
+        when(recipeRepository.findById(anyLong())).thenReturn(recipeOptional);
+
+        //when
+        ingredientService.deleteById(1L, 3L);
+
+        //then
+
+        verify(ingredientRepository, times(1)).deleteById(anyLong());
+//        verify(recipeRepository, times(1)).findById(anyLong());
+//        verify(recipeRepository, times(1)).save(any(Recipe.class));
     }
 }

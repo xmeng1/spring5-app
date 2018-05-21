@@ -8,6 +8,7 @@ import science.mengxin.spring5app.converters.IngredientCommandToIngredient;
 import science.mengxin.spring5app.converters.IngredientToIngredientCommand;
 import science.mengxin.spring5app.domain.Ingredient;
 import science.mengxin.spring5app.domain.Recipe;
+import science.mengxin.spring5app.repositories.IngredientRepository;
 import science.mengxin.spring5app.repositories.RecipeRepository;
 import science.mengxin.spring5app.repositories.UnitOfMeasureRepository;
 
@@ -24,12 +25,14 @@ public class IngredientServiceImpl implements IngredientService {
     private final IngredientCommandToIngredient ingredientCommandToIngredient;
     private final RecipeRepository recipeRepository;
     private final UnitOfMeasureRepository unitOfMeasureRepository;
+    private final IngredientRepository ingredientRepository;
 
-    public IngredientServiceImpl(RecipeRepository recipeRepository, IngredientToIngredientCommand ingredientToIngredientCommand, IngredientCommandToIngredient ingredientCommandToIngredient, UnitOfMeasureRepository unitOfMeasureRepository) {
+    public IngredientServiceImpl(RecipeRepository recipeRepository, IngredientToIngredientCommand ingredientToIngredientCommand, IngredientCommandToIngredient ingredientCommandToIngredient, UnitOfMeasureRepository unitOfMeasureRepository, IngredientRepository ingredientRepository) {
         this.recipeRepository = recipeRepository;
         this.ingredientToIngredientCommand = ingredientToIngredientCommand;
         this.ingredientCommandToIngredient = ingredientCommandToIngredient;
         this.unitOfMeasureRepository = unitOfMeasureRepository;
+        this.ingredientRepository = ingredientRepository;
     }
 
     @Override
@@ -112,5 +115,10 @@ public class IngredientServiceImpl implements IngredientService {
             //to do check for fail
             return ingredientToIngredientCommand.convert(savedIngredientOptional.get());
         }
+    }
+
+    @Override
+    public void deleteById(Long recipeId, Long idToDelete) {
+        ingredientRepository.deleteById(idToDelete);
     }
 }
