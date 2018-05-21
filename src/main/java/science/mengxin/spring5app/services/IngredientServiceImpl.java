@@ -2,6 +2,7 @@ package science.mengxin.spring5app.services;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import science.mengxin.spring5app.commands.IngredientCommand;
 import science.mengxin.spring5app.converters.IngredientCommandToIngredient;
 import science.mengxin.spring5app.converters.IngredientToIngredientCommand;
@@ -58,6 +59,7 @@ public class IngredientServiceImpl implements IngredientService {
     }
 
     @Override
+    @Transactional
     public IngredientCommand saveIngredientCommand(IngredientCommand command) {
         Optional<Recipe> recipeOptional = recipeRepository.findById(command.getRecipeId());
 
