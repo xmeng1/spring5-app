@@ -7,5 +7,11 @@ package science.mengxin.spring5app.domain;
  * @version 1.0
  */
 public enum Difficulty {
-    EASY, MODERATE, HARD
+    EASY, MODERATE, KIND_OF_HARD, HARD;
+
+
+    // this method can help template to recognise the values
+    public Difficulty[] valuesTemplate(){
+        return Difficulty.values();
+    }
 }
