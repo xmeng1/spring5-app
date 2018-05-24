@@ -8,6 +8,7 @@ import science.mengxin.spring5app.commands.RecipeCommand;
 import science.mengxin.spring5app.converters.RecipeCommandToRecipe;
 import science.mengxin.spring5app.converters.RecipeToRecipeCommand;
 import science.mengxin.spring5app.domain.Recipe;
+import science.mengxin.spring5app.exceptions.NotFoundException;
 import science.mengxin.spring5app.repositories.RecipeRepository;
 
 import java.util.HashSet;
@@ -72,6 +73,18 @@ public class RecipeServiceImplTest {
         assertNotNull("Null recipe returned", recipeReturned);
         verify(recipeRepository, times(1)).findById(anyLong());
         verify(recipeRepository, never()).findAll();
+    }
+
+    @Test(expected = NotFoundException.class)
+    public void getRecipeByIdTestNotFound() throws Exception {
+
+        Optional<Recipe> recipeOptional = Optional.empty();
+
+        when(recipeRepository.findById(anyLong())).thenReturn(recipeOptional);
+
+        Recipe recipeReturned = recipeService.findById(1L);
+
+        //should go boom
     }
 
     @Test

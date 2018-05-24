@@ -6,6 +6,7 @@ import science.mengxin.spring5app.commands.RecipeCommand;
 import science.mengxin.spring5app.converters.RecipeCommandToRecipe;
 import science.mengxin.spring5app.converters.RecipeToRecipeCommand;
 import science.mengxin.spring5app.domain.Recipe;
+import science.mengxin.spring5app.exceptions.NotFoundException;
 import science.mengxin.spring5app.repositories.RecipeRepository;
 
 import java.util.HashSet;
@@ -40,7 +41,8 @@ public class RecipeServiceImpl implements RecipeService {
         Optional<Recipe> recipeOptional = recipeRepository.findById(l);
 
         if (!recipeOptional.isPresent()) {
-            throw new RuntimeException("Recipe Not Found!");
+            // throw new RuntimeException("Recipe Not Found!");
+            throw new NotFoundException("Recipe Not Found");
         }
 
         return recipeOptional.get();
