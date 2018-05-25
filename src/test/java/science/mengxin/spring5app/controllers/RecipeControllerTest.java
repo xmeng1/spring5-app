@@ -68,6 +68,19 @@ public class RecipeControllerTest {
     }
 
     @Test
+    public void testGetRecipeBadRequest() throws Exception {
+        Recipe recipe = new Recipe();
+        recipe.setId(1L);
+
+//        when(recipeService.findById(any())).thenThrow(NumberFormatException.class);
+
+        // the exception should have the annotation for the status
+        mockMvc.perform(get("/recipe/kafka/show"))
+                .andExpect(status().isBadRequest())
+                .andExpect(view().name("400error"));
+    }
+
+    @Test
     public void testGetNewRecipeForm() throws Exception {
         RecipeCommand command = new RecipeCommand();
 
