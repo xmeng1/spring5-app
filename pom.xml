@@ -82,18 +82,18 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-            <plugin>
+           <!-- <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
-                    <!-- CircleCI build workaround -->
-                    <!--suppress UnresolvedMavenProperty -->
+                    &lt;!&ndash; CircleCI build workaround &ndash;&gt;
+                    &lt;!&ndash;suppress UnresolvedMavenProperty &ndash;&gt;
                     <argLine>${surefireArgLine} -Xms1024m -Xmx2048m</argLine>
                     <reuseForks>true</reuseForks>
                     <useSystemClassLoader>false</useSystemClassLoader>
                 </configuration>
-                <version>2.20.1</version><!--$NO-MVN-MAN-VER$-->
-            </plugin>
+                <version>2.20.1</version>&lt;!&ndash;$NO-MVN-MAN-VER$&ndash;&gt;
+            </plugin>-->
         </plugins>
     </build>
 
