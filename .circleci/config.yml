@@ -41,5 +41,14 @@ jobs:
           key: v1-dependencies-{{ checksum "pom.xml" }}
 
       # run tests!
-      - run: mvn integration-test
+#      - run: mvn integration-test
+      # package into a jar
+      - run: mvn clean package
 
+      # build and push docker image to docker hub
+      - run: mvn clean compile
+
+      # store raw contents of src code
+      - store_artifacts:
+          path: target/classes
+          destination: spring5-app
